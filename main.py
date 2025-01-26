@@ -14,16 +14,17 @@
 print("Welcome to Lichtenberger Tax Advisory. Please answer the following questions, so we can create your tax report:")
 
 try:
-    gross_salary = input("What is your gross salary?")
+    gross_salary = float(input("What is your gross salary?"))
     no_kids = int(input("How many children do you have?"))
     if gross_salary < 1000:
         tax_rate = 0.1 - (0.01 * no_kids)
-    elif gross_salary < 2000 & no_kids = 0:
+    elif gross_salary < 2000:
         tax_rate = 0.12 - (0.01 * no_kids)
-    elif gross_salary < 4000 & no_kids = 0:
+    elif gross_salary < 4000:
         tax_rate = 0.14 - (0.005 * no_kids)
-    elif gross_salary > 4000 & no_kids = 0:
+    else:
         tax_rate = 0.18 - (0.005 * no_kids)
-        print(f"Your tax rate is {tax_rate}. You need to pay the IRS {(tax_rate)*gross_salary}")
+    tax_amount = gross_salary*tax_rate
+    print(f"Your tax rate is {tax_rate}. You need to pay the IRS {tax_amount}$.")
 except ValueError:
     print("Please enter a valid number.")
