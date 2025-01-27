@@ -17,15 +17,20 @@ try:
     gross_salary = float(input("What is your monthly gross salary? (0 Deicmals)"))
     no_kids = int(input("How many children do you have?"))
     if gross_salary < 1000:
-        tax_rate = 0.1 - (0.01 * no_kids)
+        tax_rate = 0.1
     elif gross_salary < 2000:
-        tax_rate = 0.12 - (0.01 * no_kids)
+        tax_rate = 0.12
     elif gross_salary < 4000:
-        tax_rate = 0.14 - (0.005 * no_kids)
+        tax_rate = 0.14
     else:
-        tax_rate = 0.18 - (0.005 * no_kids)
-    tax_amount = gross_salary*tax_rate
+        tax_rate = 0.18
+    if gross_salary < 2000:
+        tax_cut = 0.01 * no_kids
+    else:
+        tax_cut = 0.005 * no_kids
+    real_tax_rate = tax_rate - tax_cut
+    tax_amount = gross_salary*(real_tax_rate)
     net_salary = gross_salary - tax_amount
-    print(f"Your tax rate is {tax_rate}. You need to pay the IRS {tax_amount}$. Your monthly net salary is {net_salary}$.")
+    print(f"Your tax rate is {real_tax_rate*100}%. You need to pay the IRS {tax_amount}$. Your monthly net salary is {net_salary}$.")
 except ValueError:
     print("Please enter a valid number.")
