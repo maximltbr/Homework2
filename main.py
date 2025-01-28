@@ -33,4 +33,4 @@ try:
     net_salary = gross_salary - tax_amount
     print(f"Your tax rate is {real_tax_rate*100}%. You need to pay the IRS {tax_amount}$. Your monthly net salary is {net_salary}$.")
 except ValueError:
-    print("Please enter a valid number.")
+    print("Please enter a valid number (Must be an integer).")
