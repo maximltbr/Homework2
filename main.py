@@ -28,7 +28,7 @@ try:
         tax_cut = 0.01 * no_kids
     else:
         tax_cut = 0.005 * no_kids
-    real_tax_rate = tax_rate - tax_cut
+    real_tax_rate = max(tax_rate - tax_cut, 0)
     tax_amount = gross_salary*(real_tax_rate)
     net_salary = gross_salary - tax_amount
     print(f"Your tax rate is {real_tax_rate*100}%. You need to pay the IRS {tax_amount}$. Your monthly net salary is {net_salary}$.")
