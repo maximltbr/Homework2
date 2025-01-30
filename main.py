@@ -14,7 +14,7 @@
 print("Welcome to Lichtenberger Tax Advisory. Please answer the following questions, so we can create your tax report:")
 
 try:
-    gross_salary = float(input("What is your monthly gross salary? (0 Deicmals)"))
+    gross_salary = int(input("What is your monthly gross salary? (0 Deicmals)"))
     no_kids = int(input("How many children do you have?"))
     if gross_salary < 1000:
         tax_rate = 0.1
